@@ -1,0 +1,43 @@
+{% import '_includes/forms' as forms %}
+
+<h2>Password Enforcer Settings</h2>
+
+<div class="password-enforcer-field-container">
+{{ forms.lightswitchField({
+	label: "Enforce Password Length Requirement"|t,
+	id: 'enforceLength',
+	name: 'enforceLength',
+	value: settings.enforceLength,
+	errors: settings.getErrors('enforceLength'),
+	on: (settings.enforceLength is defined) ? settings.enforceLength : ""
+}) }}
+{{ forms.textField({
+	label: "Minimum Password Length"|t,
+	id: 'minimumPasswordLength',
+	name: 'minimumPasswordLength',
+	value: settings.minimumPasswordLength,
+	errors: settings.getErrors('minimumPasswordLength')
+}) }}
+{{ forms.lightswitchField({
+	label: "Enforce Regular Expression Pattern Validation"|t,
+	id: 'enforceRegex',
+	name: 'enforceRegex',
+	value: settings.enforceRegex,
+	errors: settings.getErrors('enforceRegex'),
+	on: (settings.enforceRegex is defined) ? settings.enforceRegex : ""
+}) }}
+{{ forms.textField({
+	label: "Password Validation Regular Expression"|t,
+	id: 'passwordValidationRegex',
+	name: 'passwordValidationRegex',
+	value: settings.passwordValidationRegex,
+	errors: settings.getErrors('passwordValidationRegex')
+}) }}
+{{ forms.textField({
+	label: "Password Validation Regular Expression Error Text"|t,
+	id: 'passwordValidationRegexErrorText',
+	name: 'passwordValidationRegexErrorText',
+	value: settings.passwordValidationRegexErrorText,
+	errors: settings.getErrors('passwordValidationRegexErrorText')
+}) }}
+</div>
